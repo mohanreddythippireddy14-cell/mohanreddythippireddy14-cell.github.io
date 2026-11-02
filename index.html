@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohan Reddy</title>
+<meta name="description" content="Mohan Reddy, B.Tech IT-BI student at IIIT Allahabad. Projects in computer vision, LLM agents and automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, projects as plain stacked entries with real output images. */
+:root {
+  --bg: #fbfbfa;
+  --fg: #16181c;
+  --muted: #5d636d;
+  --line: #e3e4e6;
+  --soft: #f1f2f3;
+  --accent: #1d5c86;
+  --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121417; --fg: #e8e9eb; --muted: #9aa0a9; --line: #2a2e34; --soft: #1a1d21; --accent: #7cb6dd; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 760px; margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; margin: 0; }
+img { max-width: 100%; height: auto; display: block; }
+.mono { font-family: var(--mono); }
+.small { font-size: 14px; color: var(--muted); }
+
+header { padding-block: 72px 40px; }
+header h1 { font-size: 40px; font-weight: 700; letter-spacing: -.01em; }
+header .sub { margin: 6px 0 0; color: var(--muted); font-size: 18px; }
+header p.intro { margin: 24px 0 0; max-width: 60ch; }
+.links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; }
+
+section { padding-block: 40px; border-top: 1px solid var(--line); }
+section > h2 { font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
+
+.project + .project { margin-top: 56px; }
+.project h3 { font-size: 24px; font-weight: 700; }
+.project .meta { margin: 4px 0 0; font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.project p { margin: 14px 0 0; max-width: 64ch; }
+.project ul { margin: 14px 0 0; padding-left: 20px; }
+.project li + li { margin-top: 6px; }
+.project .plinks { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; }
+
+figure { margin: 22px 0 0; }
+figure .imgs { display: grid; grid-template-columns: 3fr 2fr; gap: 10px; align-items: start; }
+figure img { border-radius: 6px; border: 1px solid var(--line); background: #fff; }
+figcaption { margin-top: 8px; font-size: 14px; color: var(--muted); max-width: 64ch; }
+@media (max-width: 560px) { figure .imgs { grid-template-columns: 1fr; } }
+
+.table-wrap { margin-top: 18px; overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-weight: 600; background: var(--soft); }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-family: var(--mono); font-size: 13px; }
+
+.others { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.others .project + .project { margin-top: 0; }
+.others h3 { font-size: 20px; }
+@media (max-width: 640px) { .others { grid-template-columns: 1fr; } }
+
+dl.skills { display: grid; grid-template-columns: 140px 1fr; gap: 10px 20px; margin: 0; }
+dl.skills dt { color: var(--muted); }
+dl.skills dd { margin: 0; }
+@media (max-width: 480px) { dl.skills { grid-template-columns: 1fr; gap: 2px; } dl.skills dd { margin-bottom: 10px; } }
+
+footer { padding-block: 40px 64px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Mohan Reddy</h1>
+  <p class="sub">B.Tech IT-BI · IIIT Allahabad</p>
+  <p class="intro">I build applied AI projects end to end: training vision models, wiring up LLM agents, and automating the boring parts with scheduled pipelines. I write down what doesn't work yet, because a number I can't defend isn't worth putting in a README. I'm looking for Data, AI and ML internships and entry-level roles.</p>
+  <div class="links">
+    <a href="mailto:mohanreddythippireddy14@gmail.com">mohanreddythippireddy14@gmail.com</a>
+    <a href="https://github.com/mohanreddythippireddy14-cell">GitHub</a>
+    <a href="https://www.linkedin.com/in/thippireddy-mohan-reddy-732a78382/">LinkedIn</a>
+  </div>
+</header>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <article class="project">
+    <h3>Pothole detection and severity estimation</h3>
+    <p class="meta">Python · PyTorch · YOLOv8 · Depth-Anything-V2</p>
+    <p>Road departments need to know which potholes to fix first, but a citizen's photo only says "there's a pothole", not how bad it is. This pipeline takes one ordinary road photo and rates each pothole LOW, MEDIUM or HIGH, without LiDAR or a calibrated camera.</p>
+    <ul>
+      <li>YOLOv8n detects potholes. I trained it on 1,986 images merged from several datasets.</li>
+      <li>YOLOv8n-seg outlines each pothole, and Depth-Anything-V2 estimates relative depth inside the crop.</li>
+      <li>A rule-based severity engine, modelled on the ASTM D6433 pavement standard, combines size and depth. Depth can raise a rating but never lower it, and if there's no mask the result is UNKNOWN rather than a guess.</li>
+    </ul>
+    <figure>
+      <div class="imgs">
+        <img src="assets/pothole-high.jpg" width="640" height="480" alt="Road photo with a deep pothole boxed in red and labelled HIGH, confidence 0.66" loading="lazy">
+        <img src="assets/pothole-masks.jpg" width="400" height="400" alt="Asphalt with three segmented potholes: two orange MEDIUM and one red HIGH" loading="lazy">
+      </div>
+      <figcaption>Real pipeline output. Left: a deep pothole rated HIGH; a second weak detection got no mask, so it's reported UNKNOWN. Right: masks coloured by severity. Both photos come from the training datasets, so they show the output format, not test accuracy.</figcaption>
+    </figure>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>Evaluation</th><th class="num">mAP@50</th><th class="num">mAP@50:95</th></tr></thead>
+        <tbody>
+          <tr><td>Detection</td><td>5-fold cross-validation</td><td class="num">0.731 ± 0.010</td><td class="num">0.432 ± 0.009</td></tr>
+          <tr><td>Segmentation (mask)</td><td>PothRGBD, 100-image test split</td><td class="num">0.908</td><td class="num">0.592</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">An earlier evaluation showed 0.95 mAP@50, but the test photos had leaked into the training data. I struck it out of the README and report the cross-validated 0.73 instead. Depth correlates with sensor depth at r = −0.73, so it's used as a relative signal only.</p>
+    <div class="plinks"><a href="https://github.com/mohanreddythippireddy14-cell/Pothole_detection">Code and full results</a></div>
+  </article>
+
+  <article class="project">
+    <h3>STIR 2026: tracking points on surgical video</h3>
+    <p class="meta">Python · PyTorch · Docker · MICCAI EndoVis challenge</p>
+    <p>The STIR challenge asks teams to track points on deforming tissue through laparoscopic surgery video. The tissue is wet and shiny, instruments block the view, and the 2026 rules require strict frame-by-frame inference within a latency budget.</p>
+    <ul>
+      <li>I built a Dockerized inference harness for mono and stereo trackers that writes per-frame predictions and latency in the official format.</li>
+      <li>I benchmarked existing trackers locally with the official metrics code, to choose a base for my own model.</li>
+      <li>Reading the evaluation harness closely showed that the 2026 protocol requires per-frame streaming, which rules out trackers that look ahead at future frames.</li>
+    </ul>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tracker</th><th class="num">AJ</th><th class="num">ATA</th><th class="num">p95 latency</th></tr></thead>
+        <tbody>
+          <tr><td>DenseTrack2D</td><td class="num">0.659</td><td class="num">0.743</td><td class="num">485 ms</td></tr>
+          <tr><td>MFT-IQ (RoMa flow)</td><td class="num">0.663</td><td class="num">0.743</td><td class="num">13,028 ms</td></tr>
+          <tr><td>RoMa + LT fallback</td><td class="num">0.638</td><td class="num">0.714</td><td class="num">1,274 ms</td></tr>
+          <tr><td>CoTracker3 offline</td><td class="num">0.599</td><td class="num">0.686</td><td class="num">23 ms</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Local benchmark on 4 dev sequences, not the official leaderboard. The challenge's own reference tracker scored about 0.40 in this setup against 0.78 officially, so these numbers only compare trackers with each other.</p>
+    <figure>
+      <img src="assets/stir-agreement.png" width="760" height="430" alt="Line chart over 300 frames: neighbourhood motion agreement for three points; two stay near 0.6, one drops below 0.1" loading="lazy">
+      <figcaption>A diagnostic from my tracker work: how well each point's motion agrees with its neighbours over 300 frames. Point 31's agreement falls toward zero, a sign it no longer moves with the tissue around it.</figcaption>
+    </figure>
+    <div class="plinks"><a href="https://github.com/mohanreddythippireddy14-cell/STIR-CHALLENGE-2026-MICCAI-ENDOVIS">Code</a></div>
+  </article>
+
+  <article class="project">
+    <h3>CogAIt: a tutor that doesn't give answers</h3>
+    <p class="meta">TypeScript · React · Convex · Gemini · Groq</p>
+    <p>When JEE and NEET students ask AI for answers, they skip the part that builds understanding. CogAIt replies with questions instead, and raises the level of help one step at a time only when a student is stuck.</p>
+    <ul>
+      <li>Every reply goes through a validator that rejects final values, worked solutions and "yes, that's correct". It regenerates up to 3 times, then falls back to a safe question.</li>
+      <li>Eight small agent services handle the rest: session analysis, practice sets, long-term reports, cohort views for lecturers and a judge that audits outputs.</li>
+      <li>Each answer gets a Cognitive Independence Score, so a lecturer can see which students lean on the AI, per topic.</li>
+    </ul>
+    <p class="small">Working prototype, not yet piloted with an institution. The README lists which guardrails are enforced and which aren't yet.</p>
+    <div class="plinks"><a href="https://cog-ai-t.vercel.app">Live app</a><a href="https://github.com/mohanreddythippireddy14-cell/CogAIt">Code</a></div>
+  </article>
+
+  <article class="project">
+    <h3>Billionaire Thoughts: an automated Shorts channel</h3>
+    <p class="meta">Python · Groq (Llama 3.1) · GitHub Actions</p>
+    <p>A pipeline that runs entirely on GitHub Actions cron jobs. Three times a day it writes a short script with an LLM, renders a 1080×1920 video and uploads it to YouTube, Instagram and Facebook, timed for audiences in Asia, Europe and the US. Every Sunday it pulls its own analytics and generates ideas for the next week.</p>
+    <div class="plinks"><a href="https://github.com/mohanreddythippireddy14-cell/billionaire-thoughts">Code</a></div>
+  </article>
+
+  <div class="others" style="margin-top:56px">
+    <article class="project">
+      <h3>SiteBook</h3>
+      <p class="meta">React Native · Expo · Firebase</p>
+      <p>An attendance and wage app for construction sites. It turns daily attendance, overtime, advances and holidays into monthly pay reports as PDF or Excel.</p>
+      <div class="plinks"><a href="https://github.com/mohanreddythippireddy14-cell/SiteBook">Code</a></div>
+    </article>
+    <article class="project">
+      <h3>RupeeGrow</h3>
+      <p class="meta">HTML · JavaScript · PWA</p>
+      <p>A free compound interest and SIP calculator for India, with inflation and tax adjustments and FD vs. mutual fund comparison. Available in Hindi and English.</p>
+      <div class="plinks"><a href="https://mohanreddythippireddy14-cell.github.io/rupeegrow/">Try it</a><a href="https://github.com/mohanreddythippireddy14-cell/rupeegrow">Code</a></div>
+    </article>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <dl class="skills">
+    <dt>Languages</dt><dd>Python, TypeScript, JavaScript, Java, C++</dd>
+    <dt>ML and AI</dt><dd>PyTorch, YOLOv8, segmentation and depth models, point tracking, LLM APIs (Gemini, Groq), multi-agent systems</dd>
+    <dt>Tools</dt><dd>Git, Docker, GitHub Actions, Firebase, Convex, React, React Native</dd>
+  </dl>
+</section>
+
+<footer>
+  <p style="margin:0">Get in touch: <a href="mailto:mohanreddythippireddy14@gmail.com">mohanreddythippireddy14@gmail.com</a> · <a href="https://www.linkedin.com/in/thippireddy-mohan-reddy-732a78382/">LinkedIn</a> · <a href="https://github.com/mohanreddythippireddy14-cell">GitHub</a></p>
+</footer>
+
+</div>
+</body>
+</html>
