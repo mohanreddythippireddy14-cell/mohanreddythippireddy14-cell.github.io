@@ -132,24 +132,26 @@ footer { padding-block: 40px 64px; border-top: 1px solid var(--line); }
   <article class="project">
     <h3>STIR 2026: tracking points on surgical video</h3>
     <p class="meta">Python · PyTorch · Docker · MICCAI EndoVis challenge</p>
-    <p>The STIR challenge asks teams to track points on deforming tissue through laparoscopic surgery video. The tissue is wet and shiny, instruments block the view, and the 2026 rules require strict frame-by-frame inference within a latency budget.</p>
+    <p>The STIR challenge asks teams to track points on deforming tissue through laparoscopic surgery video, in 2D and 3D. The tissue is wet and shiny, instruments block the view, and each frame must be processed in under 200 ms without seeing future frames. The goal is to beat the official reference score of 77.62.</p>
     <ul>
       <li>I built a Dockerized inference harness for mono and stereo trackers that writes per-frame predictions and latency in the official format.</li>
-      <li>I benchmarked existing trackers locally with the official metrics code, to choose a base for my own model.</li>
-      <li>Reading the evaluation harness closely showed that the 2026 protocol requires per-frame streaming, which rules out trackers that look ahead at future frames.</li>
+      <li>I benchmarked more than ten trackers and variants with the official metrics code, including fine-tuning DenseTrack2D on STIR pseudo-labels (4.30 → 4.27 px).</li>
+      <li>The 2026 rules require strict frame-by-frame inference, which ruled out the most accurate tracker as built. I wrote a streaming version of it, then found it holds up on short clips but loses most of its accuracy past a few hundred frames.</li>
+      <li>For 3D, I tested two-eye fusion, Kalman rejection and re-anchoring. None beat tracking the left eye plus stereo depth, because the right eye tracks measurably worse (75.9 vs 61.9 px error, worse in 20 of 24 sequences).</li>
     </ul>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Tracker</th><th class="num">AJ</th><th class="num">ATA</th><th class="num">p95 latency</th></tr></thead>
+        <thead><tr><th>Tracker</th><th class="num">ATA</th><th class="num">p95 (local)</th><th>Frame by frame?</th></tr></thead>
         <tbody>
-          <tr><td>DenseTrack2D</td><td class="num">0.659</td><td class="num">0.743</td><td class="num">485 ms</td></tr>
-          <tr><td>MFT-IQ (RoMa flow)</td><td class="num">0.663</td><td class="num">0.743</td><td class="num">13,028 ms</td></tr>
-          <tr><td>RoMa + LT fallback</td><td class="num">0.638</td><td class="num">0.714</td><td class="num">1,274 ms</td></tr>
-          <tr><td>CoTracker3 offline</td><td class="num">0.599</td><td class="num">0.686</td><td class="num">23 ms</td></tr>
+          <tr><td>DenseTrack2D (offline)</td><td class="num">0.743</td><td class="num">485 ms</td><td>No</td></tr>
+          <tr><td>MFT-IQ</td><td class="num">0.743</td><td class="num">13,028 ms</td><td>Yes, far too slow</td></tr>
+          <tr><td>CoTracker3 online</td><td class="num">0.686</td><td class="num">127 ms</td><td>Yes</td></tr>
+          <tr><td>My DenseTrack2D streaming wrapper</td><td class="num">0.686</td><td class="num">156 ms</td><td>Yes</td></tr>
+          <tr><td>Same wrapper, sequences up to 915 frames</td><td class="num">0.269</td><td class="num">156 ms</td><td>Yes</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="small">Local benchmark on 4 dev sequences, not the official leaderboard. The challenge's own reference tracker scored about 0.40 in this setup against 0.78 officially, so these numbers only compare trackers with each other.</p>
+    <p class="small">Local benchmark on dev sequences, not the leaderboard. The challenge's own reference tracker scored about 0.40 locally against 0.78 officially, so these numbers only compare trackers with each other. Best streaming result so far: CoTracker3 online at 70.64 δ_avg on a 60-sequence set, against the 77.62 target.</p>
     <figure>
       <img src="assets/stir-agreement.png" width="760" height="430" alt="Line chart over 300 frames: neighbourhood motion agreement for three points; two stay near 0.6, one drops below 0.1" loading="lazy">
       <figcaption>A diagnostic from my tracker work: how well each point's motion agrees with its neighbours over 300 frames. Point 31's agreement falls toward zero, a sign it no longer moves with the tissue around it.</figcaption>
