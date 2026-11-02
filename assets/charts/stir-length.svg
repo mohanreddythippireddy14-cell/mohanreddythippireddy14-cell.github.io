@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300" role="img" aria-label="ATA by sequence length" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+<rect width="760" height="300" rx="16" fill="#ffffff"/>
+<text x="32.0" y="40.0" font-size="18" fill="#1e293b" font-weight="700" text-anchor="start">Long sequences are the real problem: ATA falls from 0.47 to 0.15</text>
+<text x="32.0" y="64.0" font-size="13" fill="#64748b" font-weight="400" text-anchor="start">CoTracker3 online on a length-stratified 60-sequence set (76,519 frames), official 2026 thresholds</text>
+<text x="216.0" y="124.0" font-size="14" fill="#1e293b" font-weight="600" text-anchor="end">Short clips (7–8 frames)</text>
+<rect x="230" y="106" width="470" height="28" rx="6" fill="#e2e8f0" fill-opacity="0.6"/>
+<rect x="230" y="106" width="310.2" height="28" rx="6" fill="#99a3f0"/>
+<text x="550.2" y="125.0" font-size="14" fill="#1e293b" font-weight="700" text-anchor="start">~0.66</text>
+<text x="216.0" y="184.0" font-size="14" fill="#1e293b" font-weight="600" text-anchor="end">202–485 frames</text>
+<rect x="230" y="166" width="470" height="28" rx="6" fill="#e2e8f0" fill-opacity="0.6"/>
+<rect x="230" y="166" width="222.3" height="28" rx="6" fill="#6f68ea"/>
+<text x="462.3" y="185.0" font-size="14" fill="#1e293b" font-weight="700" text-anchor="start">0.47</text>
+<text x="216.0" y="244.0" font-size="14" fill="#1e293b" font-weight="600" text-anchor="end">514–949 frames</text>
+<rect x="230" y="226" width="470" height="28" rx="6" fill="#e2e8f0" fill-opacity="0.6"/>
+<rect x="230" y="226" width="68.6" height="28" rx="6" fill="#4f46e5"/>
+<text x="308.6" y="245.0" font-size="14" fill="#1e293b" font-weight="700" text-anchor="start">0.15</text>
+</svg>
